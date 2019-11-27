@@ -1,0 +1,8 @@
+# regular expression test mail content
+import re
+
+target_regular = '''message_base64'''
+
+# base64で表現された本文のみを取得する正規表現
+regex_content = re.compile(r'(?<=base64).+(?=--)')
+print(regex_content.findall(target_regular))
