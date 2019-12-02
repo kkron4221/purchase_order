@@ -15,7 +15,7 @@ def get_gmail():
 
     gmail.login(UserName, PassName)
 
-    # get all_message
+    # get all_message If second args is True that it is readonly. So You should change this args from True to Falus when real enviroment.
     gmail.select(mailbox, True)
 
     # get unread-message
