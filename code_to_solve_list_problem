@@ -1,0 +1,22 @@
+def store_info(mozi):
+    test_list = []
+    target_when = "2019"
+    target_list_store = ["aaa", "bbb"]
+    target_list_num = [3, 2]
+    test_list.append(target_when)
+    test_list.append(target_list_store)
+    test_list.append(target_list_num)
+    store_num = len(target_list_store)
+    return test_list
+    
+target_list = store_info("hogehoge")
+store_num = len(target_list[1])
+spread_list = []
+
+for i in range(store_num):
+    spread_list.append(target_list[0])
+    spread_list.append(target_list[1][i])
+    spread_list.append(target_list[2][i])
+    
+    print(spread_list)
+    spread_list.clear()
