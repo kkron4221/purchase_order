@@ -9,8 +9,8 @@ import base64
 def get_gmail():
 
     # ここにメアドとパスを入れてね
-    UserName = "knroro1877887@gmail.com"
-    PassName = "knroropass19"
+    UserName = ""
+    PassName = ""
     mailbox = "INBOX"
     gmail = imaplib.IMAP4_SSL("imap.gmail.com", '993')
     msg_list =[]
