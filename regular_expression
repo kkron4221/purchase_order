@@ -1,0 +1,38 @@
+# regular expression
+
+import re
+
+def regular_expression(content):
+    input_to_spreadsheet = []
+    regex_when = re.compile(r'[0-9]{1,4}年[0-9]{1,2}月[0-9]{1,2}日')
+    regex_store_name = re.compile(r'(?<=:).+店')
+
+    # search_allで解決できそう
+    regex_order_kind_num = re.compile('・')
+    regex_order = re.compile(r'(?<=・).+(?=\()')
+    regex_order_num = re.compile(r'[0-9]{1,2}個')
+    regex_money = re.compile(r'(?<=(合計\] ))[0-9]*円')
+    
+    
+    when = regex_when.search(content)
+    store_name = regex_store_name.search(content)
+    order_kind_num = regex_order_kind_num.findall(content)
+    order = regex_order.findall(content)
+    order_num = regex_order_num.findall(content)
+    money = regex_money.search(content)
+    
+    input_to_spreadsheet.append(len(order_kind_num))
+    input_to_spreadsheet.append(when.group())
+    input_to_spreadsheet.append(store_name.group())
+    input_to_spreadsheet.append(order)
+    input_to_spreadsheet.append(order_num)
+    input_to_spreadsheet.append(money.group())
+    
+
+#     for i in len(order_kind_num):
+        
+    
+    return input_to_spreadsheet
+
+# print(content_from_gmail)
+print(regular_expression(content_from_gmail))
