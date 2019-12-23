@@ -15,6 +15,7 @@ def save_spredsheet(buy_data):
     credentials = ServiceAccountCredentials.from_json_keyfile_name('gspread_test.json', scope)
     gc = gspread.authorize(credentials)
     wks = gc.open('test').sheet1
-    
-#     listの数だけ追加
+#     TODO:append_row　check
     wks.append_row(buy_data)
+#     listの数だけ追加
+#     wks.append_row(buy_data)
