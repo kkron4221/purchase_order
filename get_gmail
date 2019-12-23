@@ -1,0 +1,46 @@
+# gmailのリクエスト取得
+
+import imaplib
+import email
+from email.header import decode_header, make_header
+import re
+import base64
+
+def get_gmail():
+
+    # ここにメアドとパスを入れてね
+    UserName = "knroro1877887@gmail.com"
+    PassName = "knroropass19"
+    mailbox = "INBOX"
+    gmail = imaplib.IMAP4_SSL("imap.gmail.com", '993')
+    msg_list =[]
+
+    gmail.login(UserName, PassName)
+
+    # get all_message
+#     TODO:IF select's second args is True which it is wrong. The correct is second args is none.
+    gmail.select(mailbox, True)
+#     gmail.select(mailbox)
+
+    # get unread-message
+    typ, data = gmail.search(None, 'UnSeen')
+
+    ids = data[0].split()
+
+    for id in ids[::-1]:
+        typ, data = gmail.fetch(id, '(RFC822)')
+        raw_email = data[0][1]
+        msg = email.message_from_bytes(raw_email)
+        msg = str(msg)
+        if 'base64' in msg:
+            regex_content = re.compile(r'(?<=base64).*?(?=--)', flags=re.DOTALL)
+            msg = regex_content.search(msg).group()
+            ans = base64.b64decode(msg).decode()
+            msg_list.append(ans)
+            print(ans)
+        else:
+            pass
+        
+        
+        
+    return msg_list
