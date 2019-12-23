@@ -1,9 +1,15 @@
 # main program
-
-nonread_content_list = []
 nonread_content_list = get_gmail()
-print(nonread_content_list)
 
-# regular_expression(content)
-
-# save_spredsheet() 
+for content_from_gmail in nonread_content_list:
+    input_to_spreadsheet = regular_expression(content_from_gmail)
+    print(input_to_spreadsheet)
+    list_for_input_to_spreadsheet = []
+    for i in range(0, input_to_spreadsheet[0]):
+        list_for_input_to_spreadsheet.append(input_to_spreadsheet[1])
+        list_for_input_to_spreadsheet.append(input_to_spreadsheet[2])
+        list_for_input_to_spreadsheet.append(input_to_spreadsheet[3][i])
+        list_for_input_to_spreadsheet.append(input_to_spreadsheet[4][i])
+        list_for_input_to_spreadsheet.append(input_to_spreadsheet[5])
+        save_spredsheet(list_for_input_to_spreadsheet)
+        list_for_input_to_spreadsheet.clear()
