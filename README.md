@@ -20,11 +20,8 @@
 
 spreadsheetの設定方法　
 
-
-PythonでGoogleスプレッドシートを編集 - QiitaPythonでGoogleスプレッドシートを編集してみました。  #環境 Python 3.5.2 pip 10.0.1qiita.com
-
-
-
+以下のurlを参照してください
+https://qiita.com/akabei/items/0eac37cb852ad476c6b9
 
 備考:当方で設定を行うことも可能でしたが、顧客の情報を外部の人間がアクセスできる状況はクライアント様にとっても不都合と判断いたしました。
 
